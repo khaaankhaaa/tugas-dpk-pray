@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secode PPLG SMKN 1 Ciamis</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.glow-orb-1 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(59, 130, 246, 0.15);
+    filter: blur(150px);
+    border-radius: 50%;
+    top: 10%;
+    left: -100px;
+    z-index: -1;
+}
+
+.glow-orb-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(6, 182, 212, 0.12);
+    filter: blur(180px);
+    border-radius: 50%;
+    top: 50%;
+    right: -150px;
+    z-index: -1;
+}
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:100;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:28px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.logo img{
+    width:45px;
+    height:45px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+    align-items: center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#60a5fa;
+}
+
+.nav-logout-btn {
+    background: linear-gradient(to right, #ef4444, #b91c1c);
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(239,68,68,.4);
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-content h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero-content span{
+    color:#60a5fa;
+}
+
+.typing-container {
+    display: inline-block;
+    margin-bottom: 35px;
+}
+
+.typing-text {
+    display: block;
+    font-size: 18px;
+    color: #d1d5db;
+    line-height: 1.9;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #60a5fa;
+    width: 0;
+    animation: 
+        typing 4s steps(40, end) forwards,
+        blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #60a5fa }
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    background:linear-gradient(to right,#3b82f6,#06b6d4);
+    color:white;
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(59,130,246,.4);
+}
+
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#9ca3af;
+}
+
+
+.info{
+    padding:80px 8%;
+    background:rgba(0,0,0,.45);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border-radius:25px;
+    overflow:hidden;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(59,130,246,.3);
+}
+
+.card-content{
+    padding:30px;
+}
+
+.card-icon{
+    width:65px;
+    height:65px;
+    background:linear-gradient(to right,#3b82f6,#06b6d4);
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.card-content h3{
+    margin-bottom:15px;
+    font-size:25px;
+}
+
+.card-content p{
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.card-content ul{
+    list-style:none;
+    margin-top:20px;
+}
+
+.card-content ul li{
+    color:#9ca3af;
+    margin-bottom:10px;
+}
+
+.card-content ul li::before{
+    content:"✓ ";
+    color:#60a5fa;
+}
+
+.stats-section {
+    padding: 60px 8%;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255,255,255,.05);
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 45px;
+    color: #60a5fa;
+    background: linear-gradient(to right, #3b82f6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #9ca3af;
+    font-size: 16px;
+}
+
+
+.schedule{
+    padding:80px 8%;
+}
+
+.schedule-wrapper{
+    overflow-x:auto;
+}
+
+.schedule-table{
+    min-width:950px;
+    border-radius:25px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.table-header{
+    display:grid;
+    grid-template-columns:150px repeat(5,1fr);
+    background:linear-gradient(to right,#3b82f6,#06b6d4);
+    font-weight:600;
+}
+
+.table-header div{
+    padding:20px;
+    border:1px solid rgba(255,255,255,.1);
+    text-align:center;
+}
+
+.table-row{
+    display:grid;
+    grid-template-columns:150px repeat(5,1fr);
+}
+
+.table-row div{
+    padding:25px 15px;
+    border:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    transition:.3s;
+}
+
+.table-row div:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.day{
+    font-weight:600;
+    background:rgba(255,255,255,.04);
+}
+
+.subject{
+    background:rgba(255,255,255,.03);
+}
+
+
+.gallery{
+    padding:80px 8%;
+    background:rgba(0,0,0,.45);
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.gallery-item img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:rgba(0,0,0,.8);
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer p{
+    color:#9ca3af;
+    margin-bottom: 15px;
+}
+
+footer span{
+    color:#60a5fa;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    color: #9ca3af;
+    font-size: 22px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #60a5fa;
+    transform: translateY(-3px);
+}
+
+
+.main-login-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    background: 
+    linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),
+    url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.login-card h2 span {
+    color: #60a5fa;
+}
+
+.login-card .subtitle {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #60a5fa;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(to right, #3b82f6, #06b6d4);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.login-submit-btn:hover {
+    box-shadow: 0 5px 15px rgba(59,130,246,.4);
+    transform: translateY(-2px);
+}
+
+.user-logged-in {
+    font-weight: 500;
+    color: #60a5fa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.protected-content {
+    display: none;
+}
+
+
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:45px;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.title h2{
+    font-size:35px;
+}
+
+.typing-text {
+    white-space: normal;
+    border-right: none;
+    animation: none;
+    width: auto;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="main-login-wrapper" id="loginPage">
+    <div class="login-card">
+        <h2>Secode <span>PPLG👩🏻‍💻</span></h2>
+        <form id="mainLoginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required placeholder="Masukkan username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="Masukkan password">
+            </div>
+            <button type="submit" class="login-submit-btn">Masuk</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="protected-content" id="mainWebContainer">
+
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+
+    <nav>
+        <div class="logo">
+            <img src="scode.jpeg" alt="logo">
+            Secode <span>PPLG'12</span>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#info">Info</a></li>
+            <li><a href="#jadwal">Jadwal</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li id="nav-auth-container"><button class="nav-logout-btn" id="logoutBtn">Logout</button></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Kelas <span>X PPLG</span></h1>
+            <div class="typing-container">
+                <span class="typing-text">Kami adalah siswa kelas X Pengembangan Perangkat Lunak dan Gim SMKN 1 Ciamis.</span>
+            </div>
+            <a href="#info" class="btn">Explore Class</a>
+        </div>
+    </section>
+
+    <section class="info" id="info">
+        <div class="title">
+            <h2>Info Kelas</h2>
+            <p>Informasi lengkap tentang kelas kami</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-icon">🏫</div>
+                    <h3>Identitas Kelas</h3>
+                    <p>Kelas X PPLG SMKN 1 Ciamis tahun ajaran 2025/2026.</p>
+                    <ul>
+                        <li>Kelas X PPLG</li>
+                        <li>SMKN 1 Ciamis</li>
+                        <li>Tahun Ajaran 2025/2026</li>
+                        <li>Wali Kelas: Bpk. Amirudin,S.Pd</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-icon">👥</div>
+                    <h3>Anggota Kelas</h3>
+                    <p>Total siswa dan siswi yang aktif di kelas kami.</p>
+                    <ul>
+                        <li>41 Siswa</li>
+                        <li>27 Laki-laki</li>
+                        <li>14 Perempuan</li>
+                        <li>Kelas Terluar Binasa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-icon">💻</div>
+                    <h3>Mata Pelajaran</h3>
+                    <p>Pelajaran produktif jurusan PPLG.</p>
+                    <ul>
+                        <li>Pemrograman Web</li>
+                        <li>Pemrograman Mobile</li>
+                        <li>Database</li>
+                        <li>Desain Grafis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>41</h3>
+                <p>Total Siswa</p>
+            </div>
+            <div class="stat-item">
+                <h3>12+</h3>
+                <p>Mata Pelajaran</p>
+            </div>
+            <div class="stat-item">
+                <h3>1000+</h3>
+                <p>Bug kelas</p>
+            </div>
+            <div class="stat-item">
+                <h3>2025</h3>
+                <p>Tahun Angkatan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule" id="jadwal">
+        <div class="title">
+            <h2>Jadwal Pelajaran</h2>
+        </div>
+
+        <div class="schedule-wrapper">
+            <div class="schedule-table">
+                <div class="table-header">
+                    <div>Hari</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="day">Senin</div>
+                    <div class="subject">SUNDA</div>
+                    <div class="subject">PPKn</div>
+                    <div class="subject">DPK-PPLG</div>
+                    <div class="subject">-</div>
+                    <div class="subject">-</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="day">Selasa</div>
+                    <div class="subject">INDONESIA</div>
+                    <div class="subject">SENI BUDAYA</div>
+                    <div class="subject">IPAS</div>
+                    <div class="subject">INGGRIS</div>
+                    <div class="subject">-</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="day">Rabu</div>
+                    <div class="subject">MATEMATIKA</div>
+                    <div class="subject">SEJARAH</div>
+                    <div class="subject">PJOK</div>
+                    <div class="subject">INDONESIA</div>
+                    <div class="subject">INGGRIS</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="day">Kamis</div>
+                    <div class="subject">PAI</div>
+                    <div class="subject">MATEMATIKA</div>
+                    <div class="subject">DPK-PPLG</div>
+                    <div class="subject">-</div>
+                    <div class="subject">-</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="day">Jumat</div>
+                    <div class="subject">INFORMATIKA</div>
+                    <div class="subject">BP</div>
+                    <div class="subject">IPAS</div>
+                    <div class="subject">-</div>
+                    <div class="subject">-</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="title">
+            <h2>Kegiatan bersama</h2>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2026-05-18 at 14.24.22.jpeg">
+            </div>
+            <div class="gallery-item">
+                <img src="foto2.jpeg">
+            </div>
+            <div class="gallery-item">
+                <img src="foto3.jpeg">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Secode <span>PPLG'12</span> - SMKN 1 Ciamis</p>
+        <div class="social-icons">
+            <a href="https://instagram.com/official.sec0de_" target="_blank" title="Instagram Kelas"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@official.secode" target="_blank" title="TikTok Kelas"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    const loginPage = document.getElementById('loginPage');
+    const mainWebContainer = document.getElementById('mainWebContainer');
+    const mainLoginForm = document.getElementById('mainLoginForm');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+
+    const adminUser = "admin";
+    const adminPass = "123";
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const isLogged = localStorage.getItem('isLogged');
+        if (isLogged === 'true') {
+    
+            loginPage.style.display = 'none';
+            mainWebContainer.style.display = 'block';
+        }
+    });
+
+    
+    mainLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+
+        const inputUser = document.getElementById('username').value;
+        const inputPass = document.getElementById('password').value;
+
+        if (inputUser === adminUser && inputPass === adminPass) {
+            alert('Login Berhasil! Selamat datang di Website kelas X PPLG.');
+            
+            localStorage.setItem('isLogged', 'true');
+            
+            loginPage.style.display = 'none';
+            mainWebContainer.style.display = 'block';
+            
+            mainLoginForm.reset();
+        } else {
+            alert('Username atau Password salah!');
+        }
+    });
+
+    
+    logoutBtn.addEventListener('click', () => {
+        if(confirm('Apakah kamu yakin ingin keluar?')) {
+        
+            localStorage.removeItem('isLogged');
+
+            mainWebContainer.style.display = 'none';
+            loginPage.style.display = 'flex';
+        }
+    });
+</script>
+
+</body>
+</html>
